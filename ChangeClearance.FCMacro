@@ -1,0 +1,29 @@
+from PySide import QtGui
+
+def ShowError(errormsg = "Error!"):
+	msgbox = QtGui.QMessageBox()
+	msgbox.setText(errormsg)
+	msgbox.exec_()
+
+def GetDatum(msg = "Input:"):
+	val = QtGui.QInputDialog.getText(None, "Insert Datum", msg)[0]
+	try:
+		return float(val)
+	except:
+		return 0.00
+
+doc = App.activeDocument()
+
+selobjs = [i for i in doc.findObjects("Part::Offset") if "ClearanceObj" in i.Label ]
+
+if len(selobjs) == 0:
+	ShowError("No clearance objects found!")
+else:
+	val = GetDatum("Clearance [0.01, 1.00]:")
+
+	if val >= 0.01 and val <= 1.00:
+		for i in selobjs:
+			i.Value = val
+		doc.recompute()
+	else:
+		ShowError("Value must be between 0.01 and 1.00 mm")
