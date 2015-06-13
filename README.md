@@ -32,7 +32,7 @@ The parts that form this Torii are meant to fit into each other. The manufactori
 
 I created this model so that the clearance can be easily adjusted by running a python script.
 
-Please checkout the following Youtube video for instructions on how to do it: (TODO: Add video link)
+Please checkout the following Youtube video for instructions on how to do it: [Adjusting the clearance of a 3D model in FreeCAD](https://www.youtube.com/watch?v=kNFO7rr0h4c)
 
 ## 3D Printing
 
